@@ -1,0 +1,17 @@
+<h1>게시판 입니당 <h1>
+<p>게시판이에영</p>
+<a href="/posts/new">[새 글 쓰깅]</a>
+
+<% @posts.each do |post| %>
+<p>
+제목 : <%= post.title %><br>
+내용 : <%= post.content %><br>
+<a href="/posts/destroy/<%= post.id %>">[삭제]</a>
+<a href="/posts/edit/<%= post.id %>">[수정]</a>
+</p>
+
+
+<!-- 데이터베이스에서 우리가 수정하고자 하는 글을 찾는다. -->
+<!--찾은 글을 <form>에 보여주고 수정할 내용을 입력 받는다.  -->
+<!-- 입력받은 내용을 받아서 데이터베이스에서 수정한다.  -->
+<% end%>
