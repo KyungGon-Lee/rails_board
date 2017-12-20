@@ -1,0 +1,28 @@
+<div class="container">
+  <!-- Content here -->
+
+<div class="card" style="width: 40rem;">
+  <div class="card-body">
+    <h4 class="card-title">제목 : <%= @post.title %></h4>
+    <p class="card-text">작성자 : <%= @post.email %></p>
+    <p class="card-text">내용 : <%= @post.content %></p>
+    <a class="btn btn-primary" class="card-link" href="/posts/edit/<%= @post.id %>">[수정]</a>
+    <a class="btn btn-danger" class="card-link" href="/posts/destroy/<%= @post.id %>">[삭제]</a>
+  </div>
+</div>
+
+
+<form action="/posts/<%= @post.id %>/add_comment">
+  <form class="form-inline">
+ <label for="inputPassword2" class="sr-only">Password</label><br>
+  <input type="text" class="form-control" id="inputPassword2" placeholder="댓글을 쓰세영" name="content"><br>
+  <button type="submit" class="btn btn-primary">댓글 쓰깅</button>
+</form>
+</form>
+
+<% @post.comments.each do |comment| %>
+<ul class="list-group"><br>
+  <li class="p-3 mb-2 bg-dark text-white"><%= comment.user.email %> : <%= comment.content %></li>
+</ul>
+<% end %>
+</div>
